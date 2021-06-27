@@ -1,54 +1,32 @@
-var paperMenu = {
-	$window: $('#paper-window'),
-	$paperFront: $('#paper-front'),
-	$hamburger: $('.hamburger'),
-	offset: 1800,
-	pageHeight: $('#paper-front').outerHeight(),
-	
-	open: function() {
-		this.$window.addClass('tilt');
-		this.$hamburger.off('click');
-		$('#container, .hamburger').on('click', this.close.bind(this));
-		this.hamburgerFix(true);
-		console.log('opening...');
-	},
-	close: function() {
-		this.$window.removeClass('tilt'); 
-		$('#container, .hamburger').off('click');
-		this.$hamburger.on('click', this.open.bind(this));
-		this.hamburgerFix(false);
-		console.log('closing...');
-	},
-	updateTransformOrigin: function() {
-		scrollTop = this.$window.scrollTop();
-		equation = (scrollTop + this.offset) / this.pageHeight * 100;
-		this.$paperFront.css('transform-origin', 'center ' + equation + '%');
-	},
-	//hamburger icon fix to keep its position
-	hamburgerFix: function(opening) {
-			if(opening) {
-				$('.hamburger').css({
-					position: 'absolute',
-					top: this.$window.scrollTop() + 30 + 'px'
-				});
-			} else {
-				setTimeout(function() {
-					$('.hamburger').css({
-						position: 'fixed',
-						top: '30px'
-					});
-				}, 300);
-			}
-		},
-	bindEvents: function() {
-		this.$hamburger.on('click', this.open.bind(this));
-		$('.close').on('click', this.close.bind(this));
-		this.$window.on('scroll', this.updateTransformOrigin.bind(this));
-	},
-	init: function() {
-		this.bindEvents();
-		this.updateTransformOrigin();
-	},
-};
+$(".sendmess").click(function() {
+  $(".bar").css("animationName", "send");
+  SendMess();
+})
 
-paperMenu.init();
+function SendMess() {
+  setTimeout(function() {
+    $(".l1").css("display", "none");
+    $(".l2").css("display", "none");
+    $(".mailinput").css("display", "none");
+    $(".messtxt").css("display", "none");
+    $(".sendmess").css("display", "none");
+
+    $(".success").css("display", "inline");
+    $(".closemess").css("display", "inline");
+  }, 1500);
+}
+
+$(".closemess").click(function() {
+  $(".bar").css("animationName", "none");
+  $(".l1").css("display", "inline");
+  $(".l2").css("display", "inline");
+  $(".mailinput").css("display", "inline");
+  $(".messtxt").css("display", "inline");
+  $(".sendmess").css("display", "inline");
+
+  $(".success").css("display", "none");
+  $(".closemess").css("display", "none");
+  
+  $(".mailinput").val("");
+  $(".messtxt").val("");
+})

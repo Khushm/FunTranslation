@@ -273,14 +273,15 @@ section {
 
 
 .text-output {
-  height: 14vh;
+  height: 12vh;
   width: 50%;
   border: 2px solid white;
   background-color: transparent;
   color: white;
   text-align: center;
-  margin: auto;
   padding:1rem;
+  margin-top: 30px;
+  margin-bottom: 30px;
   border-radius: 1rem;
   opacity: 0.75;
   font-size: xx-large;

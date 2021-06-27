@@ -12,168 +12,153 @@
   <title>GTCoding</title>
 </head>
 <style type="text/css">
-  $hexagon-width: 250px;
-$hexagon-height: $hexagon-width*.55;
-$hexagon-margin: 25px;
-$hexagon-title-color: #fff;
-$hexagon-border-color: #fff;
-$hexagon-border-color--hover: #72f88e;
-$hexagon-image-color: #3ea0eb;
-$honeycomb-max-width: 1200px;
-$viewport-thereshold: $hexagon-width + $hexagon-margin;
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
-
 body {
-  font-family: 'Montserrat', sans-serif;
-  background: #3ea0eb;
+  background: #141e30;
 }
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-.honeycomb {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  justify-content: center;
-  align-items: center;
-  max-width: $honeycomb-max-width;
-  margin: 0 auto;
+button {
   padding: 0;
-  transform: translateY(#{$hexagon-height/4});
+  border: 0;
+  background: none;
+}
 
-  &-cell {
-    flex: 0 1 $hexagon-width;
-    max-width: $hexagon-width;
-    height: $hexagon-height;
-    margin: $hexagon-height/2.1 $hexagon-margin/2 $hexagon-margin;
-    position: relative;
-    padding: 0.5em;
+.mailbg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 80vw;
+  max-width: 400px;
+  height: 500px;
+  background: #474e5d;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
-    text-align: center;
-    z-index: 1;
 
+label {
+  font-size: 1.2em;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+}
 
-    &__title {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      hyphens: auto;
-      word-break: break-word;
-      text-transform: uppercase;
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.75em;
-      transition: opacity 350ms;
-      
-      > small {
-        font-weight: 300;
-        margin-top: 0.25em;
-      }
-    }
+.l1 {
+  position: absolute;
+  top: 20px;
+  left: 5%;
+}
 
-    &__image {
-      object-fit: cover;
-      object-position: center;
-    }
-    
-    &::before, &::after {
-      content: '';
-    }
+.l2 {
+  position: absolute;
+  top: 120px;
+  left: 5%;
+}
 
-    &::before, &::after, &__image {
-      top: -50%;
-      left: 0;
-      width: 100%;
-      height: 200%;
-      display: block;
-      position: absolute;
-      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-      z-index: -1;
-    }
+.mailinput {
+  position: absolute;
+  top: 50px;
+  box-sizing: border-box;
+  border: none;
+  padding: 5px;
+  left: 50%;
+  width: 90%;
+  height: 50px;
+  resize: none;
+  font-size: 1.2em;
+  font-family: 'Roboto Condensed', sans-serif;
+  -webkit-transform: translate(-50%, -0%);
+  -ms-transform: translate(-50%, -0%);
+  transform: translate(-50%, -0%);
+}
 
-    &::before {
-      background: $hexagon-border-color;
-      transform: scale(1.055);
-    }
+.mailinput:focus {
+  outline: none;
+}
 
-    &::after {
-      background: $hexagon-image-color;
-      opacity: 0.5;
-      transition: opacity 350ms;
-    }
+.messtxt {
+  position: absolute;
+  top: 150px;
+  box-sizing: border-box;
+  border: none;
+  padding: 5px;
+  left: 50%;
+  width: 90%;
+  height: 250px;
+  resize: none;
+  font-size: 1.2em;
+  font-family: 'Roboto Condensed', sans-serif;
+  -webkit-transform: translate(-50%, -0%);
+  -ms-transform: translate(-50%, -0%);
+  transform: translate(-50%, -0%);
+}
 
-    &:hover {
-      
-      .honeycomb-cell__title {
-        opacity: 0;
-      }
-      
-      &::before {
-        background: $hexagon-border-color--hover;
-      }
+.messtxt:focus {
+  outline: none;
+}
 
-      &::after {
-        opacity: 0;
-      }
-    }
+.sendmess {
+  position: absolute;
+  top: 420px;
+  left: 50%;
+  -webkit-transform: translate(-50%, -0%);
+  -ms-transform: translate(-50%, -0%);
+  transform: translate(-50%, -0%);
+  width: 90%;
+  height: 50px;
+  text-align: center;
+  font-size: 1.2em;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  color: white;
+  background: #000;
+  line-height: 40px;
+  cursor: pointer;
+}
+
+.sendmess:focus {
+  outline: none;
+}
+
+.bar {
+  position: absolute;
+  width: auto;
+  background: black;
+  top: 0%;
+  left: 0;
+  right: 100%;
+  height: 100%;
+  content: "";
+  animation: sent 1.5s forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes send {
+  0% {
+    right: 100%;
   }
-
-  &__placeholder{
-    display:none;
-    opacity: 0;
-    width: $hexagon-width;
-    margin: 0 $hexagon-margin/2;
+  100% {
+    right: 0%;
   }
 }
 
-@media (max-width:#{2*$viewport-thereshold}){
-  .honeycomb-cell {
-    margin: #{$hexagon-margin/2 + $hexagon-height/2} $hexagon-margin;
-  }
+.success {
+  position: absolute;
+  top: 120px;
+  width: 80%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -0%);
+  -ms-transform: translate(-50%, -0%);
+  transform: translate(-50%, -0%);
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: bold;
+  display: none;
 }
 
-@media (min-width: #{2*$viewport-thereshold}) and (max-width:#{3*$viewport-thereshold}){
-  .honeycomb-cell:nth-child(3n) {
-    margin-right: calc(50% - #{$hexagon-width/2});
-    margin-left: calc(50% - #{$hexagon-width/2});
-  }
 
-  .honeycomb__placeholder:nth-child(3n + 5) {
-    display:block;
-  }
-}
-
-@media (min-width: #{3*$viewport-thereshold}) and (max-width:#{4*$viewport-thereshold}) {
-  .honeycomb-cell:nth-child(5n + 4) {
-    margin-left: calc(50% - #{$hexagon-width + $hexagon-margin});
-  }
-
-  .honeycomb-cell:nth-child(5n + 5) {
-    margin-right: calc(50% - #{$hexagon-width + $hexagon-margin});
-  }
-
-  .honeycomb__placeholder:nth-child(5n), .honeycomb__placeholder:nth-child(5n + 3) {
-    display:block;
-  }
-}
-
-@media (min-width: #{4*$viewport-thereshold}) {
-  .honeycomb-cell:nth-child(7n + 5)  {
-    margin-left: calc(50% - #{$hexagon-width*1.5 + $hexagon-margin});
-  }
-
-  .honeycomb-cell:nth-child(7n + 7), .honeycomb-cell:nth-child(7n + 5):nth-last-child(2) {
-    margin-right: calc(50% - #{$hexagon-width*1.5 + $hexagon-margin});
-  }
-
-  .honeycomb__placeholder:nth-child(7n + 7), .honeycomb__placeholder:nth-child(7n + 9), .honeycomb__placeholder:nth-child(7n + 11){
-    display:block;
-  }
-}
 </style>
 <body>
     <div id="slideout-menu">
@@ -219,89 +204,51 @@ body {
         </ul>
     </nav>
 
-  <main>
     <span><br><br><br><br></span><span></span>
-<ul class="honeycomb" lang="es">
-  <li class="honeycomb-cell">
-    <img class="honeycomb-cell__image" src="https://source.unsplash.com/random/1">
-    <div class="honeycomb-cell__title">Diseño exclusivo</div>
-  </li>
-  <li class="honeycomb-cell">
-    <img class="honeycomb-cell__image" src="https://source.unsplash.com/random/2">
-    <div class="honeycomb-cell__title">Impermeables</div>
-  </li>
-  <li class="honeycomb-cell">
-    <img class="honeycomb-cell__image" src="https://source.unsplash.com/random/3">
-    <div class="honeycomb-cell__title">Tablero doble cara</div>
-  </li>
-  <li class="honeycomb-cell">
-    <img class="honeycomb-cell__image" src="https://source.unsplash.com/random/4">
-    <div class="honeycomb-cell__title">Maletín de empaque</div>
-  </li>
-  <li class="honeycomb-cell">
-    <img class="honeycomb-cell__image" src="https://source.unsplash.com/random/5">
-    <div class="honeycomb-cell__title">Antireflectivo<small>No vidrio</small></div>
-  </li>
-  <li class="honeycomb-cell">
-    <img class="honeycomb-cell__image" src="https://source.unsplash.com/random/6">
-    <div class="honeycomb-cell__title">6 fichas<small>1 de repuesto</small></div>
-  </li>
-  <li class="honeycomb-cell">
-    <img class="honeycomb-cell__image" src="https://source.unsplash.com/random/7">
-    <div class="honeycomb-cell__title">Tablero magnético</div>
-  </li>
-  <li class="honeycomb-cell honeycomb__placeholder"></li>
-</ul>
 
-    <footer>
-            <div id="left-footer">
-                <h3>Quick Links</h3>
-                <p>
-                    <ul>
-                        <li>
-                            <a href="../index.html">Home</a>
-                        </li>
-                        <li>
-                            <a href="./char.html">Characters</a>
-                        </li>
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
-                        <li>
-                            <a href="#">Privacy Policy</a>
-                        </li>
-                    </ul>
-                </p>
-            </div>
+<div class="mailbg">
+  <label class="l1" for="mailinput">Your Email:</label>
+  <input class="mailinput" aria-label="Your Email" autocomplete="on" type="email" placeholder="">
+  <label class="l2" for="messtxt">Your Message:</label>
+  <textarea class="messtxt" aria-label="Your Message" placeholder=""></textarea>
+  <button class="sendmess" aria-label="Send message">Send<div class="bar"></div></button>
+  <div class="success">Message sent successfully.<br><br>Thanks!</div>
+</div>
 
-            <div id="right-footer">
-                <h3>Get Connected with Us</h3>
-                <div id="social-media-footer">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <p>Talk your Characters Way!</p>
-            </div>
-        </footer>
+  <script type="text/javascript">
+    $(".sendmess").click(function() {
+  $(".bar").css("animationName", "send");
+  SendMess();
+})
 
+function SendMess() {
+  setTimeout(function() {
+    $(".l1").css("display", "none");
+    $(".l2").css("display", "none");
+    $(".mailinput").css("display", "none");
+    $(".messtxt").css("display", "none");
+    $(".sendmess").css("display", "none");
+
+    $(".success").css("display", "inline");
+    $(".closemess").css("display", "inline");
+  }, 1500);
+}
+
+$(".closemess").click(function() {
+  $(".bar").css("animationName", "none");
+  $(".l1").css("display", "inline");
+  $(".l2").css("display", "inline");
+  $(".mailinput").css("display", "inline");
+  $(".messtxt").css("display", "inline");
+  $(".sendmess").css("display", "inline");
+
+  $(".success").css("display", "none");
+  $(".closemess").css("display", "none");
+  
+  $(".mailinput").val("");
+  $(".messtxt").val("");
+})
+  </script>
   </main>
 </body>
 
