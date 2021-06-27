@@ -2,6 +2,8 @@ body {
   font-family: 'Architects Daughter', sans-serif;
   /*font-family: "Roboto", sans-serif;*/
   margin: 0;
+  color: #fff;
+  background: linear-gradient(#141e30, #243b55);
 }
 
 h1 {
@@ -179,28 +181,13 @@ section {
 
 .section-heading:hover {
   padding: 4px 48px;
-  background: red;
+  background: #03e9f4;
 }
 
 section {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-}
-
-.section-heading {
-  font-size: 32px;
-  font-family: "Roboto Condensed", sans-serif;
-  border-left: 3px solid black;
-  border-right: 3px solid black;
-  transition: all 0.4s;
-  display: inline-block;
-  padding: 4px 32px;
-}
-
-.section-heading:hover {
-  padding: 4px 48px;
-  background: red;
 }
 
 /* Section Source */
@@ -254,14 +241,9 @@ section {
   background: white;
 }
 
-.btn-readmore:hover {
-  background: red;
-  text-decoration: none;
-  padding: 8px 64px 8px 24px;
-  color: white;
-}
 
-/*chracters*/
+
+/*characters*/
 
 #translate-btn {
   background-color: transparent;
@@ -303,6 +285,30 @@ section {
   opacity: 0.75;
   font-size: xx-large;
   font-weight: bold;
+}
+
+.card-description a, #section-source a{
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.card-description a:hover, #section-source a:hover {
+  background: #03e9f4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
 }
 
 /* Footer */
