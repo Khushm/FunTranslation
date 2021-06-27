@@ -1,4 +1,4 @@
-var translateButton = document.querySelector("#translate-btn")
+var translateButton = document.querySelector("#translate-btn-shakesp")
 var inputText = document.querySelector(".text-input")
 var outputText = document.querySelector(".text-output")
 var voiceList = document.querySelector('#voiceList');
@@ -6,7 +6,7 @@ var voiceList = document.querySelector('#voiceList');
 var synth = window.speechSynthesis;
 var voices = [];
 
-var url = "https://api.funtranslations.com/translate/minion.json"
+var url = "https://api.funtranslations.com/translate/shakespeare.json"
 
 const getTranslatedUrl = (input) => {
     return url + "?" + "text=" + input;
@@ -16,6 +16,7 @@ const catchError = (e) => {
     console.log(e);
     alert("Something went wrong with the server");
 }
+
 
 function PopulateVoices(){
     voices = synth.getVoices();
@@ -31,7 +32,7 @@ function PopulateVoices(){
   
     voiceList.selectedIndex = selectedIndex;
   }
-  
+
 
 const clickHandler = () => {
     var txtInput = inputText.value;
@@ -42,13 +43,13 @@ const clickHandler = () => {
         console.log(translatedText);
         
         var toSpeak = new SpeechSynthesisUtterance(translatedText);
-            var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
-            voices.forEach((voice)=>{
-                if(voice.name === selectedVoiceName){
-                    toSpeak.voice = voice;
-                }
-            });
-            synth.speak(toSpeak);
+        var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
+        voices.forEach((voice)=>{
+            if(voice.name === selectedVoiceName){
+                toSpeak.voice = voice;
+            }
+        });
+        synth.speak(toSpeak);
 
         outputText.innerHTML = translatedText
     

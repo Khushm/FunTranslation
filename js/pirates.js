@@ -1,4 +1,4 @@
-var translateButton = document.querySelector("#translate-btn")
+var translateButton = document.querySelector("#translate-btn-pirates")
 var inputText = document.querySelector(".text-input")
 var outputText = document.querySelector(".text-output")
 var voiceList = document.querySelector('#voiceList');
@@ -6,7 +6,7 @@ var voiceList = document.querySelector('#voiceList');
 var synth = window.speechSynthesis;
 var voices = [];
 
-var url = "https://api.funtranslations.com/translate/minion.json"
+var url = "https://api.funtranslations.com/translate/pirate.json"
 
 const getTranslatedUrl = (input) => {
     return url + "?" + "text=" + input;
@@ -31,7 +31,6 @@ function PopulateVoices(){
   
     voiceList.selectedIndex = selectedIndex;
   }
-  
 
 const clickHandler = () => {
     var txtInput = inputText.value;
