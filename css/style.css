@@ -261,6 +261,50 @@ section {
   color: white;
 }
 
+/*chracters*/
+
+#translate-btn {
+  background-color: transparent;
+  color: white;
+  border: 1.2px solid white;
+  font-family: 'Oregano', cursive;
+  font-size: x-large;
+  margin: 1rem 0 1.2rem 0;
+  padding: 1rem;
+  border-radius: 2rem;
+  width: 10rem;
+  font-weight:bolder;
+}
+
+.text-input {
+  width: 50%;
+  text-align: center;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: x-large;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  /* opacity: 0.75; */
+}
+
+
+.text-output {
+  height: 14vh;
+  width: 50%;
+  border: 2px solid white;
+  background-color: transparent;
+  color: white;
+  text-align: center;
+  margin: auto;
+  padding:1rem;
+  border-radius: 1rem;
+  opacity: 0.75;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
 /* Footer */
 
 footer {
